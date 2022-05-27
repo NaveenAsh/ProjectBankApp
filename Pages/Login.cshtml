@@ -1,0 +1,35 @@
+﻿@page
+@model ProjectBankApp.Pages.LoginModel
+@{
+}
+
+<form method="post" class="shadow border-bottom mt-lg-5 w-50 mx-auto">
+    <div class="container p-3">
+          
+        <div class="mx-auto mb-2 text-center">
+            <h1 class="display-5">Login</h1>
+
+        </div>
+
+  <div class="form-group mb-3">
+       <label asp-for="@Model.UserName"> Username </label>
+        <input type="text" asp-for="@Model.UserName" class="form-control" />
+  </div>
+
+  <div class="form-group mb-3">
+       <label asp-for="@Model.Password"> Password </label>
+       <input type="password" asp-for="@Model.Password" class="form-control" />
+  </div>
+  
+  <div class="form-group">
+       <button type="submit" class="form-control btn-primary btn-primary">Login</button>
+  </div>
+
+  <div class="form-group">
+        <h6 class="text-danger">@Model.ErrorMessage </h6>
+  </div>
+   </div>
+  
+ 
+</form>
+

@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Bank Of eNoah</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/font-awesome/css/all.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ProjectBankApp.styles.css" asp-append-version="true" />
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    @if (User.Identity.IsAuthenticated && User.IsInRole("User"))
+    {
+        <header>
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark  bg-dark border-bottom box-shadow mb-3">
+                <div class="container">
+                    <a class="navbar-brand" asp-area="" asp-page="/Index">Bank Of eNoah</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end">
+
+                       
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-page="/Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                    <a class="nav-link text-light" asp-area="" asp-page="/Users/UserProfile">Profile</a>
+                             </li>
+                              <li class="nav-item">
+                                    <a class="nav-link text-light" asp-area="" asp-page="/Users/UserStatement">Statement</a>
+                                </li>
+
+                            <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle text-light mb-4" href="#" role="button" data-bs-toggle="dropdown">Fund Transfer</a>
+
+                              <ul class="dropdown-menu">
+                                 <li class="nav-item">
+                                    <a class="dropdown-item text-dark" asp-page="/Transactions/AddMoney">Add Money</a>
+                                </li>
+                                 <li class="nav-item">
+                                    <a class="dropdown-item text-dark" asp-page="/Transactions/SendMoney">Send Money</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="dropdown-item text-dark" asp-page="/Transactions/WithdrawMoney">Withdraw Money</a>
+                                </li>
+                              </ul>
+                               </li>
+                              
+                                <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle text-light mb-4" href="#" role="button" data-bs-toggle="dropdown">Services</a>
+
+                              <ul class="dropdown-menu">
+                                 <li class="nav-item">
+                                    <a class="dropdown-item text-dark" asp-page="/Users/Services">Debit Cards</a>
+                                </li>
+                                 <li class="nav-item">
+                                    <a class="dropdown-item text-dark" asp-page="/Users/Services">Credit Cards</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="dropdown-item text-dark" asp-page="/Users/Services">Loans</a>
+                                </li>
+                                 <li class="nav-item">
+                                    <a class="dropdown-item text-dark" asp-page="/Users/Services">UPI Services</a>
+                                </li>
+                                 <li class="nav-item">
+                                    <a class="dropdown-item text-dark" asp-page="/Users/Services">Passbook</a>
+                                </li>
+                                 <li class="nav-item">
+                                    <a class="dropdown-item text-dark" asp-page="/Users/Services">Credintials</a>
+                                </li>
+                                  <li class="nav-item">
+                                    <a class="dropdown-item text-dark" asp-page="/Users/Services">Customer Care</a>
+                                </li>
+                              </ul>
+                               </li>
+                              
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-page="/Index" asp-route-action="logout">
+                                    <i class="fa fa-door-open"> Logout</i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    }
+
+    else if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+    {
+        <header>
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
+                <div class="container">
+                    <a class="navbar-brand" asp-area="" asp-page="/Index">Bank Of eNoah</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-page="/Index">Home</a>
+                            </li>
+
+                           
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-page="/Admin/AllUserProfile">All Customers Profile</a>
+                            </li>
+                             <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-page="/Admin/AllUserStatement">All Transactions</a>
+                            </li>
+                            
+                             <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-page="/Customers/Add">Add Customer</a>
+                            </li>
+                             
+
+
+
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-page="/Login" asp-route-action="logout">
+                                    <i class="fa fa-door-open"> Logout</i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    }
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+
+
+    <footer class="bg-dark text-center text-white mt-auto">
+        <!-- Grid container -->
+        <div class="container p-4 pb-0 w-">
+            &nbsp;
+            &nbsp;
+            &nbsp;
+        </div>
+        @* <!-- Section: Social media -->
+            <section class="mb-4">
+            <!-- Facebook -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+            ><i class="fab fa-facebook-f"></i
+            ></a>
+
+            <!-- Twitter -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+            ><i class="fab fa-twitter"></i
+            ></a>
+
+            <!-- Google -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+            ><i class="fab fa-google"></i
+            ></a>
+
+            <!-- Instagram -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+            ><i class="fab fa-instagram"></i
+            ></a>
+
+            <!-- Linkedin -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+            ><i class="fab fa-linkedin-in"></i
+            ></a>
+
+            <!-- Github -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+            ><i class="fab fa-github"></i
+            ></a>
+            </section>
+            <!-- Section: Social media -->
+            </div>
+            <!-- Grid container -->
+
+            <!-- Copyright -->
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            <h6></h6>
+            </div>*@
+        <!-- Copyright -->
+    </footer>
+
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

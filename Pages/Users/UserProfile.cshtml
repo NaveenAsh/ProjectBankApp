@@ -1,0 +1,154 @@
+﻿@page
+@model ProjectBankApp.Pages.Users.UserProfileModel
+@{
+}
+
+<form method="post">
+    <div class="row form-group">
+        <div class="col-sm-10"><h2>Your Profile </h2></div>
+  
+      
+    </div>
+    <div>
+  
+           
+        </div>
+        <div>
+        <h6 class="text-success">@Model.SuccessMessage </h6>
+        <h6 class="text-danger">@Model.ErrorMessage </h6>
+        </div>
+
+        <table class="table" style="background-color:aqua">
+          
+            <tbody>
+                
+                    @foreach (var g in @Model.UserProfileList)
+                    {
+                    <tr>
+                        <td>ID</td>
+                        <td>@g.Id</td>
+                    </tr>
+
+                    <tr>
+                    <td>First Name</td>
+                    <td>@g.FirstName</td>
+                    </tr>
+                    <tr>
+                        <td>Middle Name</td>
+                        <td>@g.MiddleName</td> 
+                    </tr>
+                    <tr>
+                        <td>Last Name</td>
+                        <td>@g.LastName</td>
+                    </tr>
+                    <tr>
+                        <td>DOB</td>
+                        <td>@g.DOB</td>
+                    </tr>
+                    <tr>
+                        <td>Gender</td>
+                        <td>@g.Gender</td>
+                    </tr>
+                    <tr>
+                        <td>AccountNo</td> 
+                        <td>@g.AccountNo</td>
+                    </tr>
+                    <tr>
+                         <td>AccountType</td>
+                        <td>@g.AccountType</td>
+                      </tr>
+                        <tr>
+                        <td>Current Balance</td>
+                        <td>@g.CurrentBalance</td>
+                    </tr>
+                    <tr>
+                        <td>Branch Name</td>
+                        <td>@g.BranchName</td>
+                    </tr>
+                    <tr>
+                <td>Branch City</td>
+                        <td>@g.BranchCity</td>
+
+                    </tr>
+
+                    <tr>
+                    <td>Address</td>
+                        <td>@g.Address</td>
+
+                    </tr>
+                    <tr>
+                <td>City</td>
+                        <td>@g.City</td>
+
+                    </tr>
+                    <tr>
+                         <td>State</td>
+                        <td>@g.State</td>
+                    </tr>
+                     <tr>
+                        <td> Pincode</td>
+                        <td>@g.Pincode</td>
+                    </tr>
+                     <tr>
+                <td>Email Id</td>
+                        <td>@g.EmailId</td>
+                    </tr>
+                     <tr>
+                <td>Mobile Number</td>
+                        <td>@g.MobileNumber</td>
+                    </tr>
+                     
+                      <tr>
+                <td>Occupation</td>
+                        <td>@g.Occupation</td>
+                    </tr>
+                      <tr>
+                <td>Account Status</td>
+                        <td>@g.AccountStatus</td>
+                    </tr>
+                        
+             
+
+                  
+
+                    
+
+
+
+
+
+
+
+@*
+                    <tr>
+                        <td></td>
+                        <td>@g.MiddleName</td>
+                        <td>@g.LastName</td>
+                        <td>@g.DOB</td>
+                        <td>@g.Gender</td>
+                        <td>@g.AccountNo</td> 
+                        <td>@g.AccountType</td> 
+                        <td>@g.ACD</td> 
+                        <td>@g.CurrentBalance</td>
+                        <td>@g.BranchName</td>
+                        <td>@g.BranchIFSC</td>
+                        <td>@g.BranchCity</td>
+                        <td>@g.Address</td>
+                        <td>@g.City</td>
+                        <td>@g.State</td>
+                        <td>@g.Pincode</td>
+                        <td>@g.EmailId</td>
+                        <td>@g.MobileNumber</td>
+                        <td>@g.Occupation</td>
+                        <td>@g.AccountStatus</td>
+             
+                       
+
+                          
+                  </tr>*@
+                    }
+
+            </tbody>
+
+        </table>
+</form>

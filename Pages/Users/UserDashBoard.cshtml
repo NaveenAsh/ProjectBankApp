@@ -1,0 +1,52 @@
+﻿@*@page
+@model ProjectBankApp.Pages.Users.UserDashBoardModel
+@{
+        ViewData["Title"] = "User Page";
+
+}*@
+
+@*@if(HttpContext.User.Identity.IsAuthenticated)
+{
+    <div class="row">
+        <div class="col-md-4 col-xl-4">
+            <div class="card bg-info text-dark db-card p-4">
+                <div class="card-block">
+                    <h6 class="m-b-20">@Model.UserName</h6>
+                    <h2 class="text-end"><i class="fa fa-person float-start"></i><span> </span></h2>
+                    <h6 class="m-b-20">@Model.CurrentBalance</h6>
+                    <p class="m-b-0">Active <span class="f-right"></span></p>
+                </div>
+            </div>
+        </div>*@
+
+    @*<div class="col-md-4 col-xl-4">
+        <div class="card db-card p-4" style="background-color: #00ff99">
+            <div class="card-block ">
+                <h6 class="m-b-20">Departments</h6>
+                <h2 class="text-end"><i class="fa fa-building float-start"></i><span>@Model.DepartmentCount</span></h2>
+                <p class="m-b-0">Active <span class="float-end"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 col-xl-4">
+        <div class="card db-card p-4" style="background-color: #33cccc">
+            <div class="card-block">
+                <h6 class="m-b-20">Training</h6>
+                <h2 class="text-end"><i class="fa fa-graduation-cap float-start"></i><span>@Model.TrainingCount</span></h2>
+                <p class="m-b-0">Completed <span class="float-end">@Model.CompletedTrainingCount</span></p>
+            </div>
+        </div>
+    </div>
+</div>*@
+    
+@*}
+else
+  {
+      <div class="mx-auto text-center">
+             <h4 class="display-4">Please Click here to <a href = "Departments/Login"> Login </a> </h4>
+      </div>
+  }
+       *@ 
+
+

@@ -1,0 +1,29 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<form method="post">
+@if (User.Identity.IsAuthenticated)
+{
+     <div class="mx-auto text-center">
+            
+             <h4 class="display-2"> Welcome to Bank of eNoah </h4>
+             <h6 class="display-6"> Have a Hassle free Banking Experience</h6>
+      </div>
+
+}
+
+else
+{
+
+  <div class="mx-auto text-center">
+                      <h4 class="display-2"> Bank Of eNoah </h4>
+
+                      <br/>
+                      <br/>
+             <h6>Please Click here to <a href = "/Login"> Login </a> </h6>
+      </div>
+        
+}
+</form>

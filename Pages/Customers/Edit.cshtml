@@ -1,0 +1,105 @@
+﻿@page "{id}"
+@model ProjectBankApp.Pages.Customers.EditModel
+@{
+}
+<h3>Customer to Edit @Model.Id </h3>
+
+<form method="post" class="row g-3">
+    <div class = "row">
+        <div class="form-group col">
+            <label asp-for="@Model.FirstName"></label>
+            <input asp-for="@Model.FirstName" class="form-control" />
+        </div>
+        <div class="form-group col">
+            <label asp-for="@Model.MiddleName"></label>
+            <input asp-for="@Model.MiddleName" class="form-control" />
+        </div>
+        <div class="form-group col">
+            <label asp-for="@Model.LastName"></label>
+            <input asp-for="@Model.LastName" class="form-control" />
+        </div>
+    </div>
+    <br />
+    <div class = "row mt-2">
+        <div class="col">
+            <label>Gender:</label>
+            <br />
+            @foreach (var g in Model.Genders)
+            {
+                <div class="form-check form-check-inline">
+                    <input type="radio" asp-for="@Model.Gender" value="@g.Value" />
+                    @g.Text
+                </div>
+                <br />
+            }
+        </div>
+         <div class="form-group col mt-2">
+            <label asp-for="@Model.DOB"></label>
+            <input asp-for="@Model.DOB" class="form-control" />
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="form-group col">
+            <label asp-for="@Model.Address"></label>
+            <input asp-for="@Model.Address" class="form-control" />
+        </div>
+        <div class="form-group col">
+            <label asp-for="@Model.City"></label>
+            <input asp-for="@Model.City" class="form-control" />
+         </div>
+    </div>
+    <div class="row">
+        <div class="form-group col mt-3">
+            <label asp-for="@Model.State"></label>
+            <select asp-for="@Model.State" asp-items="@Model.StateList"></select>
+        </div>
+        <div class="form-group col">
+            <label asp-for="@Model.Pincode"></label>
+            <input asp-for="@Model.Pincode" class="form-control" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col">
+            <label asp-for="@Model.EmailId"></label>
+            <input asp-for="@Model.EmailId" class="form-control" />
+        </div>
+        <div class="form-group col">
+            <label asp-for="@Model.MoblieNumber"></label>
+            <input asp-for="@Model.MoblieNumber" class="form-control" />
+        </div>
+  
+        <div class="form-group col mb-3">
+            <label asp-for="@Model.Occupation"></label>
+            <input asp-for="@Model.Occupation" class="form-control" />
+        </div>
+      </div>
+    <div class="row">
+          <div class="form-group col mt-3">
+            <label asp-for="@Model.AccountType"></label>
+            <select asp-for="@Model.AccountType" asp-items="@Model.AccountTypeList"></select>
+        </div>
+        
+        <div class="form-group col mt-3">
+            <label asp-for="@Model.BranchId"></label>
+            <select asp-for="@Model.BranchId" asp-items="@Model.BranchesList"></select>
+        </div>
+         <div class="form-group col">
+            <label asp-for="@Model.AccountStatus"></label>
+            <input asp-for="@Model.AccountStatus" class="form-control" />
+        </div>
+    </div>
+      
+
+
+        <div class="form-group">
+            <h6 class="text-success">@Model.SuccessMessage</h6>
+            <h6 class="text-danger">@Model.ErrorMessage</h6>
+            <h6 class="text-danger">@Html.ValidationSummary()</h6>
+
+        </div>
+        <div>
+            <button type="submit" class="btn btn-success">Save</button>
+            <a href="/Index" class="btn btn-light" role="button">Cancel</a>
+        </div>
+</form>

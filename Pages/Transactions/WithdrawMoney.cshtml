@@ -1,0 +1,36 @@
+﻿@page
+@model ProjectBankApp.Pages.Transactions.WithdrawMoneyModel
+@{
+}
+
+<h3>WITHDRAW MONEY</h3>
+
+<form method="post" class="col g-3 mt-4">
+    <div class = "form-group col">
+        <div class="form-group row">
+            <label asp-for="@Model.MyAccount">Your Account No</label>
+            <input asp-for="@Model.MyAccount" class="form-control mt-2" readonly  />
+        </div>
+         <div class="form-group row">
+            <label asp-for="@Model.Amount"></label>
+            <input asp-for="@Model.Amount" class="form-control mt-2" />
+        </div>
+       @* <div class="form-group row">
+            <label asp-for="@Model.DOT"></label>
+            <input asp-for="@Model.DOT" class="form-control" readonly />
+        </div>*@
+    </div>
+    <br />
+  
+        <div>
+            <button type="submit" class="btn btn-success">Withdraw</button>
+            <a href="/Index" class="btn btn-light" role="button">Cancel</a>
+        </div>
+
+         <div class="form-group">
+            <h6 class="text-success">@Model.SuccessMessage</h6>
+            <h6 class="text-danger">@Model.ErrorMessage</h6>
+            <h6 class="text-danger">@Html.ValidationSummary()</h6>
+
+        </div>
+</form>
